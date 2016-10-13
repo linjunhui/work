@@ -1,1 +1,97 @@
 人生苦短，我用Python
+Python 程序的运行
+
+在MacOS和Linux中
+1)在代码第一行指定解释器
+
+#!/usr/bin/env python3
+2)给脚本添加执行权限
+
+chmod +x xxx.py
+3)在终端执行脚本
+
+
+./xxx.py
+Python 基本数据类型
+
+在 Windows中直接用python xxx.py执行脚本
+整数 
+1)包括负数 
+2)二进制表示：0b1000 
+3)八进制表示：0o123 （数字0, 字母o) 
+4)十六进制表示:0XEF
+浮点数 
+1)一般写法:1.23, 3.14 
+2)很大或者很小使用科学记数法：1.23e9, 1.2e-5
+字符串 
+1）单引号''或者双引号""都可以 
+2)当单引号'作字符时可以用双引号""括起来:"I'm OK！" 
+3)转义字符,要在字符串中表示 单引号'、双引号"、换行等，可以使用 \表示转义字符，如：\'， \" ，\n
+布尔类型(True和Flase) 
+1)注意大小写 
+2）布尔运算：and, or, not
+空值(None) 
+1)None并不是0
+变量
+a = 1 # a是整数
+s = 'sss' # s是字符串
+b = True # b是布尔类型
+# Python动态语言
+ a = 124 # a是整数
+ a = 'papapa' # a变为字符串类型
+常量 
+Python中没有常量类型，约定用全部字母大写表示常量 
+
+PI = 3.1415 
+
+实际上PI的值仍可以被改变
+函数
+
+定义函数
+
+1)在命令行定义函数出现 ...提示，输入结束后按两次回车重新回到>>>
+
+def m_abs(x):
+    if x >= 0:
+        return x
+    else:
+        return -x
+2)空函数
+
+def nop():
+    pass
+3) 参数检查
+
+def m_abs(x):
+    if not isinstance(x, (int, float)): # 参数检查
+        raise TypeError('bad operand type') # 抛出错误
+    if x >= 0:
+        return x
+    else:
+        return -x
+4）返回多个值
+
+import math
+def move(x, y, step, angle=0):
+    nx = x + step * math.cos(angle)
+    ny = y - step * math.sin(angle)
+    return nx, ny  # 返回两个值
+ x, y = move(100, 100, 60, math.pi / 6) 接收返回的两个值
+这只是假象，Python实际上还是单值返回
+>>> r = move(100, 100, 60, math.pi / 6)
+>>> print(r)
+(151.96152422706632, 70.0)
+可以看到返回值实际上是一个tuple
+
+5)函数的调用
+
+函数定义 和 使用在同一个文件中，先定义再使用
+函数与调用不在同一个文件中，先导入再使用
+# 导入方法1
+import 函数所在的文件名 # 不要.py后缀
+# 使用时
+函数所在的文件名.函数()
+# 导入方法2
+from 函数文件名 import 函数名
+# 使用时
+函数名() # 直接使用函数名调用

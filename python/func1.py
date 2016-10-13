@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-i = mabs(-10)
-
-print(i)
 
 def mabs(x):
 	if not isinstance(x, (int, float)):

@@ -37,7 +37,7 @@ class Mouse extends Animal {
 	}
 }
 
-class Demo12 {
+public class Demo12 {
 	public static void main(String[] args) {
 		Dog d = new Dog("哈士奇", "白色");
 		System.out.println("狗是狗类吗?" + (d instanceof Dog));
