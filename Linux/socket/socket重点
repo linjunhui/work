@@ -1,0 +1,9 @@
+# socket 客服端和服务端都可以close
+# 查看端口的状态，:netstat -na | grep 8001
+# address already in use
+# 服务器挂掉，tcp状态处于wait_time服务器端起不来
+# 尽量设置SO_REUSEADDR，使得服务器等待wait_time消失就能，重启服务器
+# 如果在读的过程中，对方已经关闭tcpip协议会返回一个0数据包
+# ret = read（） ，ret==0,对方已关闭
+
+# 让服务器支持多并发
