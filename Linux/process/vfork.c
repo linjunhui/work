@@ -25,7 +25,7 @@ int main() {
 		//把自己的应用拉起来
 		//execve("./hello", NULL, NULL);
 
-		//拉起ls，通过一个应用程序执行命令
+		//拉起ls，通过一个应用程序执行命令 
 		char *const argv[] = {"ls", "-l", NULL};
 		execve("/bin/ls", argv, NULL);
 		//要么拉起一个应用，要么exit
