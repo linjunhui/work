@@ -44,30 +44,30 @@ ROOT_DEV = 0x306
 
 entry start
 start:
-	mov	ax,#BOOTSEG
-	mov	ds,ax
-	mov	ax,#INITSEG
-	mov	es,ax
-	mov	cx,#256
-	sub	si,si
-	sub	di,di
-	rep
-	movw
-	jmpi	go,INITSEG
-go:	mov	ax,cs
-	mov	ds,ax
-	mov	es,ax
+	mov	ax,#BOOTSEG		!向ax寄存器 写入立即数 0x07c0
+	mov	ds,ax			!将ax中的数据存入ds(段寄存器，数据段)
+	mov	ax,#INITSEG		!向ax寄存器，写入立即数 0x9000
+	mov	es,ax			! es(段寄存器，附加段)
+	mov	cx,#256			! cx(计数器)
+	sub	si,si 			! SUB dest src (dst)<---(src) - (dst)
+	sub	di,di 			!
+	rep          		!无条件重复前缀；(cx) = 0;退出重复，否则(cx) <-- (cx) - 1,重复其后面的一条指令
+	movw 				!从ds 复制一个字(2个字节)到si，重复256次，复制512字节
+	jmpi	go,INITSEG 	!段间跳转指令执行 0x9000:go处的代码 段：sp
+go:	mov	ax,cs 			!cs(段寄存器，代码段 0x9000, 现在这些就是代码段，所以cs就是0x9000)
+	mov	ds,ax			!ds(段寄存器，数据段)
+	mov	es,ax			!es(段寄存器，附加段)
 ! put stack at 0x9ff00.
-	mov	ss,ax
-	mov	sp,#0xFF00		! arbitrary value >>512
+	mov	ss,ax			!设置堆栈段ss，为0x9000
+	mov	sp,#0xFF00		! arbitrary value >>512 堆栈地址0x9000:0xff00
 
 ! load the setup-sectors directly after the bootblock.
 ! Note that 'es' is already set up.
 
 load_setup:
-	mov	dx,#0x0000		! drive 0, head 0
-	mov	cx,#0x0002		! sector 2, track 0
-	mov	bx,#0x0200		! address = 512, in INITSEG
+	mov	dx,#0x0000		! drive 0, head 0 dh=0从磁头开始 dl=0软盘
+	mov	cx,#0x0002		! sector 2, track 0 ch=0 柱面0 cl=02 第二个扇区
+	mov	bx,#0x0200		! address = 512, in INITSEG es:bx=0x9000+512,将setup加载到此出
 	mov	ax,#0x0200+SETUPLEN	! service 2, nr of sectors
 	int	0x13			! read it
 	jnc	ok_load_setup		! ok - continue
