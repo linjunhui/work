@@ -1,0 +1,16 @@
+package cn.jonson.proxy2;
+
+public class Boss implements IBoss{
+
+	@Override
+	public int yifu(String size) {
+		// TODO Auto-generated method stub
+		System.err.println("天猫旗舰老板 ， 衣服， 发货....Size: " + size);
+		return 50;
+	}
+	
+	public void kuzi() {
+		System.err.println("天猫旗舰店， 老板， 裤子发货");
+		
+	}
+}

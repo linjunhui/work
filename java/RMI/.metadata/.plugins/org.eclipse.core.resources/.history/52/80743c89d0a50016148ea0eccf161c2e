@@ -1,0 +1,5 @@
+package com.jonson.rmi;
+
+public class HelloImpl {
+
+}

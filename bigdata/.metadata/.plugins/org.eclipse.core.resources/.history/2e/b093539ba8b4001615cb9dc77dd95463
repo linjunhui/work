@@ -1,0 +1,11 @@
+package cn.jonson.spring;
+
+public class Three {
+	public Three() {
+		System.out.println("three...");
+	}
+	
+	public Three(String three) {
+		System.out.println(three);
+	}
+}

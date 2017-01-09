@@ -1,0 +1,12 @@
+package cn.jonson.spring.annotation;
+
+public class HelloServiceImpl implements HelloService {
+
+	@RpcService("jjjjj")
+	public String hello(String name) {
+		// TODO Auto-generated method stub
+		return "hello!" + name;
+	}
+	
+
+}

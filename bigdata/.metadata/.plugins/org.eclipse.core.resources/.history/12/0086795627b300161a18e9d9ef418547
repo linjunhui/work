@@ -1,0 +1,16 @@
+package cn.jonson.proxy;
+
+import java.lang.reflect.Proxy;
+
+import org.junit.Test;
+
+public class PersonTest {
+	@Test
+	public void test() {
+		PersonDao pDao = new PersonDaoImpl();
+		PersonHandler handler = new PersonHandler(pDao);
+		
+		PersonDao proxy = (PersonDao)Proxy.newProxyInstance(pDao.getClass().getClassLoader(), pDao.getClass().getInterfaces(), handler);
+		proxy.say();
+	}
+}

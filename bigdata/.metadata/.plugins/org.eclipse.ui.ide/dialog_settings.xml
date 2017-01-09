@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/lin/Desktop/day04/day04/代码/1-cloudDay04"/>
+			<item value="/Users/lin/Desktop/day04/day05/cloudDay05"/>
+			<item value="/Volumes/新加卷/大数据3期全/资料/day04/代码/1-cloudDay04"/>
+			<item value="/Users/lin/Desktop/shizhan03-zk"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,39 @@
+package cn.jonson.tcp;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class TomcatDemo {
+
+	Socket socket;
+	
+	public TomcatDemo(Socket socket) {
+		this.socket = socket;
+	}
+	
+	public void run() {
+		try {
+			OutputStream outputStream = socket.getOutputStream();
+			//把数据写到浏览器
+			outputStream.write("<html><head><title>aaa</title></head><body>你好啊浏览器</body></html>".getBytes());
+			socket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		ServerSocket serverSocket = new ServerSocket(9090);
+		
+		while(true) {
+			Socket socket = serverSocket.accept();
+			new TomcatDemo(socket);
+		}
+
+	}
+
+}

@@ -1,0 +1,7 @@
+package cn.jonson.proxy1;
+
+public class ProxyPerson {
+	public static void main(String[] args) {
+		final MyPerson p = new MyPerson();
+	}
+}

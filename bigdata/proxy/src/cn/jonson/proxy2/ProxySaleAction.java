@@ -1,0 +1,14 @@
+package cn.jonson.proxy2;
+
+import org.junit.Test;
+
+public class ProxySaleAction {
+	
+	@Test
+	public void saleByProxy() {
+		IBoss proxy = ProxyBoss.getProxy(10, IBoss.class, Boss.class);
+		System.out.println("代理经营！");
+		int money = proxy.yifu("xxl");// 调用接口的方法，实际上调用方式没有变
+		System.out.println("衣服成交价：" + money);
+	}
+}

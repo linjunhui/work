@@ -1,0 +1,18 @@
+package cn.jonson.tcp;
+
+import java.net.Socket;
+
+public class TomcatDemo {
+
+	Socket socket;
+	
+	public TomcatDemo(Socket socket) {
+		this.socket = socket;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

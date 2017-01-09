@@ -1,0 +1,22 @@
+package cn.jonson.proxy;
+
+import java.lang.reflect.Proxy;
+
+import org.junit.Test;
+
+public class PersonTest {
+	@Test
+	public void test() {
+		
+		//2.实现了具有一定服务方法的所有接口 PersonDaoImpl()
+		PersonDao pDao = new PersonDaoImpl();
+		PersonHandler handler = new PersonHandler(pDao);
+		/*1.加载被代理类
+		 *
+		 * 
+		 * 
+		 */
+		PersonDao proxy = (PersonDao)Proxy.newProxyInstance(pDao.getClass().getClassLoader(), pDao.getClass().getInterfaces(), handler);
+		proxy.say();
+	}
+}

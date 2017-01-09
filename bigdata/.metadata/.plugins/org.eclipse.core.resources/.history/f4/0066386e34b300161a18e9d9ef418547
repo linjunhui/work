@@ -1,0 +1,17 @@
+package cn.jonson.proxy1;
+
+public class MyPerson implements PersonInterface {
+
+	@Override
+	public void doSomeThing() {
+		// TODO Auto-generated method stub
+		System.out.println("MyPerson is ....");
+	}
+
+	@Override
+	public void saySomeThing() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
